@@ -2,6 +2,7 @@ package nextsteptdd.subwaymap;
 
 import nextsteptdd.subwaymap.domain.Line;
 import nextsteptdd.subwaymap.domain.LineRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,11 @@ public class LineTest {
     @BeforeEach
     void setUp() {
         lines = LineRepository.lines();
+    }
+
+    @AfterEach
+    void tearDown() {
+        LineRepository.initData();
     }
 
     @Test

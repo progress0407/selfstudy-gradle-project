@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class LineRepository {
 
-    private static final List<Line> lines = new ArrayList<>();
+    private static List<Line> lines;
 
     public static void addLine(Line line) {
         lines.add(line);
@@ -18,6 +18,11 @@ public class LineRepository {
     }
 
     static {
+        initData();
+    }
+
+    public static void initData() {
+        lines = new ArrayList<>();
         lines.add(new Line("2호선"));
         lines.add(new Line("3호선"));
         lines.add(new Line("신분당선"));
