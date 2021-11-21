@@ -54,15 +54,11 @@ class StationTest {
 
     @Test
     void 이미있는_지하철은_등록이_안된다() {
-        assertThatThrownBy(() -> {
-            StationRepository.addStation(new Station("교대역"));
-        }).isInstanceOf(RuntimeException.class);
+        assertThatThrownBy(() -> StationRepository.addStation(new Station("교대역"))).isInstanceOf(RuntimeException.class);
     }
 
     @Test
     void 역이름은_두글자_이상이어야_된다() {
-        assertThatThrownBy(() -> {
-            StationRepository.addStation(new Station("뀨"));
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> StationRepository.addStation(new Station("뀨"))).isInstanceOf(IllegalArgumentException.class);
     }
 }
