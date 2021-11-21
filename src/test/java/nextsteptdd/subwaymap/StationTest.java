@@ -53,6 +53,14 @@ class StationTest {
     }
 
     @Test
+    void 지하철_이미삭제한경우() {
+        boolean firstDelete = StationRepository.deleteStation("역삼역");
+        assertThat(firstDelete).isTrue();
+        boolean secondDelete = StationRepository.deleteStation("역삼역");
+        assertThat(secondDelete).isFalse();
+    }
+
+    @Test
     void 이미있는_지하철은_등록이_안된다() {
         assertThatThrownBy(() -> StationRepository.addStation(new Station("교대역"))).isInstanceOf(RuntimeException.class);
     }

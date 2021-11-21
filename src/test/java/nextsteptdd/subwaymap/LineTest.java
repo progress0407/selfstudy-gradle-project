@@ -51,6 +51,14 @@ public class LineTest {
     }
 
     @Test
+    void 지하철노선_이미삭제된경우() {
+        boolean firstDelete = LineRepository.deleteLineByName("신분당선");
+        assertThat(firstDelete).isTrue();
+        boolean secondDelete = LineRepository.deleteLineByName("신분당선");
+        assertThat(secondDelete).isFalse();
+    }
+
+    @Test
     void 지하철노선_중복된이름_등록안됨() {
         assertThatThrownBy(() -> LineRepository.addLine(new Line("신분당선"))).isInstanceOf(RuntimeException.class);
     }
