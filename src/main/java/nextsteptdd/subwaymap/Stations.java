@@ -21,4 +21,8 @@ public class Stations {
     public List<Station> get() {
         return stations;
     }
+
+    public void add(String name) {
+        stations.add(new Station(name));
+    }
 }
