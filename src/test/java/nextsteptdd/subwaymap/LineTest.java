@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class LineTest {
 
@@ -51,6 +52,6 @@ public class LineTest {
 
     @Test
     void 지하철노선_중복된이름_등록안됨() {
-
+        assertThatThrownBy(() -> LineRepository.addLine(new Line("신분당선"))).isInstanceOf(RuntimeException.class);
     }
 }

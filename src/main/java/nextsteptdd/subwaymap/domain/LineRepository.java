@@ -10,7 +10,18 @@ public class LineRepository {
     private static List<Line> lines;
 
     public static void addLine(Line line) {
+        validateAlreadyLineExist(line);
         lines.add(line);
+    }
+
+    private static void validateAlreadyLineExist(Line line) {
+        if (hasLine(line)) {
+            throw new RuntimeException("이미 존재하는 노선입니다.");
+        }
+    }
+
+    private static boolean hasLine(Line line) {
+        return lines.stream().anyMatch(line::equals);
     }
 
     public static boolean deleteLineByName(String name) {
