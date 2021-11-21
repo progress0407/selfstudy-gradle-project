@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class SubwayMapMainTest {
 
@@ -51,5 +52,23 @@ class SubwayMapMainTest {
         );
     }
 
+    @Test
+    void 지하철_삭제() {
+        stations.remove("매봉역");
+        assertThat(stationList).doesNotContain(new Station("매봉역"));
+    }
 
+    @Test
+    void 이미있는_지하철은_등록이_안된다() {
+        assertThatThrownBy(() -> {
+            stations.add("교대역");
+        }).isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    void 역이름은_두글자_이상이어야_된다() {
+        assertThatThrownBy(() -> {
+            stations.add("뀨");
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
