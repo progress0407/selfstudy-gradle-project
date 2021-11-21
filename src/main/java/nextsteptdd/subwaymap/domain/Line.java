@@ -2,11 +2,15 @@ package nextsteptdd.subwaymap.domain;
 
 import java.util.Objects;
 
-public class SubwayLine {
+public class Line {
     String name;
 
-    public SubwayLine(String name) {
+    public Line(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -19,8 +23,8 @@ public class SubwayLine {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof SubwayLine)) return false;
-        SubwayLine that = (SubwayLine) o;
+        if (!(o instanceof Line)) return false;
+        Line that = (Line) o;
         return Objects.equals(name, that.name);
     }
 
