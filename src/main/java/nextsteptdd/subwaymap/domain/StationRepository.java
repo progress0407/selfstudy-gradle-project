@@ -9,9 +9,14 @@ public class StationRepository {
 
     public static final String ERROR_DUPLICATION_STATION = "이미 동일한 이름의 역이 있습니다.";
 
-    private static final List<Station> stations = new ArrayList<>();
+    private static List<Station> stations;
 
     static {
+        initData();
+    }
+
+    private static void initData() {
+        stations = new ArrayList<>();
         stations.add(new Station("교대역"));
         stations.add(new Station("강남역"));
         stations.add(new Station("역삼역"));
@@ -20,6 +25,7 @@ public class StationRepository {
         stations.add(new Station("양재시민의숲역"));
         stations.add(new Station("매봉역"));
     }
+
 
     public static List<Station> stations() {
         return Collections.unmodifiableList(stations);
