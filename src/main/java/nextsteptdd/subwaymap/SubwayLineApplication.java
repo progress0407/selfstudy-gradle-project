@@ -1,6 +1,6 @@
 package nextsteptdd.subwaymap;
 
-public class SubwayLineMain {
+public class SubwayLineApplication {
     public static void main(String[] args) {
 
     }

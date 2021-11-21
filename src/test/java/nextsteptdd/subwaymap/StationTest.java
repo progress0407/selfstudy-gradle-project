@@ -1,6 +1,7 @@
 package nextsteptdd.subwaymap;
 
-import org.junit.jupiter.api.AfterEach;
+import nextsteptdd.subwaymap.domain.Station;
+import nextsteptdd.subwaymap.domain.StationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,18 +13,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class StationTest {
 
-    Stations stations;
     List<Station> stationList;
 
     @BeforeEach
     void setUp() {
-        stations = new Stations();
-        stationList = stations.get();
-    }
-
-    @AfterEach
-    void tearDown() {
-        stations = null;
+        stationList = StationRepository.stations();
     }
 
     @Test
@@ -44,8 +38,8 @@ class StationTest {
 
     @Test
     void 지하철_등록() {
-        stations.add("노량진역");
-        stations.add("상도역");
+        StationRepository.addStation(new Station("노량진역"));
+        StationRepository.addStation(new Station("상도역"));
         assertThat(stationList).contains(
                 new Station("노량진역")
                 , new Station("상도역")
@@ -54,21 +48,21 @@ class StationTest {
 
     @Test
     void 지하철_삭제() {
-        stations.remove("매봉역");
+        StationRepository.deleteStation("매봉역");
         assertThat(stationList).doesNotContain(new Station("매봉역"));
     }
 
     @Test
     void 이미있는_지하철은_등록이_안된다() {
         assertThatThrownBy(() -> {
-            stations.add("교대역");
+            StationRepository.addStation(new Station("교대역"));
         }).isInstanceOf(RuntimeException.class);
     }
 
     @Test
     void 역이름은_두글자_이상이어야_된다() {
         assertThatThrownBy(() -> {
-            stations.add("뀨");
+            StationRepository.addStation(new Station("뀨"));
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }

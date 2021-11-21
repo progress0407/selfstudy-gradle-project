@@ -1,4 +1,4 @@
-package nextsteptdd.subwaymap;
+package nextsteptdd.subwaymap.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,5 +15,13 @@ public class SubwayLines {
 
     public List<SubwayLine> get() {
         return subwayLineList;
+    }
+
+    public void add(String name) {
+        subwayLineList.add(new SubwayLine(name));
+    }
+
+    public void remove(String name) {
+        subwayLineList.remove(new SubwayLine(name));
     }
 }
