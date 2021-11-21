@@ -10,7 +10,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class SubwayMapMainTest {
+class StationTest {
 
     Stations stations;
     List<Station> stationList;
