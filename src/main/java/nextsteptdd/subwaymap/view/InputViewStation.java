@@ -11,8 +11,10 @@ import java.util.function.Supplier;
 public class InputViewStation extends InputView {
 
     private static final String INPUT_ADD_STATION_NAME = "## 등록할 역 이름을 입력하세요.";
-    private static final String INFO_ADD_STATION = "[INFO] 지하철 역이 등록되었습니다.";
+    private static final String INFO_ADD_STATION = "[INFO] 지하철 역이 등록되었습니다." + LINE_SEPARATOR;
     private static final String INPUT_DELETE_STATION_NAME = "## 삭제할 역 이름을 입력하세요.";
+    private static final String INFO_DELETE_STATION = "[INFO] 지하철 역이 삭제되었습니다." + LINE_SEPARATOR;
+    private static final String ERROR_DELETE_STATION = "[ERROR] 삭제할 지하철이 존재하지 않습니다." + LINE_SEPARATOR;
     private static final String INPUT_LIST_STATION_NAME = "## 역 목록";
 
     private static final String SHOW_DISPLAY =
@@ -24,7 +26,10 @@ public class InputViewStation extends InputView {
                     LINE_SEPARATOR +
                     "3. 역 조회" +
                     LINE_SEPARATOR +
-                    "B. 돌아가기";
+                    "B. 돌아가기" +
+                    LINE_SEPARATOR +
+                    LINE_SEPARATOR +
+                    "## 원하는 기능을 선택하세요.";
 
     private static final Map<String, Supplier<Void>> inputViewMap = new HashMap<>();
 
@@ -52,6 +57,14 @@ public class InputViewStation extends InputView {
     }
 
     private static Void deleteStation() {
+        System.out.println(INPUT_DELETE_STATION_NAME);
+        String stationName = scanner.nextLine();
+        boolean deleteStation = StationRepository.deleteStation(stationName);
+        if (deleteStation) {
+            System.out.println(INFO_DELETE_STATION);
+            return null;
+        }
+        System.out.println(ERROR_DELETE_STATION);
         return null;
     }
 
