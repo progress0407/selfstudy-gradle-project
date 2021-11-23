@@ -2,11 +2,11 @@ package nextsteptdd.subwaymap.view;
 
 import nextsteptdd.subwaymap.domain.Station;
 import nextsteptdd.subwaymap.domain.StationRepository;
+import nextsteptdd.subwaymap.util.Voider;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 
 public class InputViewStation extends InputView {
 
@@ -31,7 +31,7 @@ public class InputViewStation extends InputView {
                     LINE_SEPARATOR +
                     "## 원하는 기능을 선택하세요.";
 
-    private static final Map<String, Supplier<Void>> inputViewMap = new HashMap<>();
+    private static final Map<String, Voider> inputViewMap = new HashMap<>();
 
     static {
         inputViewMap.put("1", InputViewStation::addStation);
@@ -43,37 +43,34 @@ public class InputViewStation extends InputView {
         showMenu(SHOW_DISPLAY);
         String input = scanner.nextLine();
         validateInput(input);
-        inputViewMap.get(input).get();
+        inputViewMap.get(input).call();
         // 정상 처리시 돌아가기
         return "B";
     }
 
-    private static Void stations() {
+    private static void stations() {
         System.out.println(INPUT_LIST_STATION_NAME);
         List<Station> stations = StationRepository.stations();
         stations.forEach(e -> System.out.println("[INFO] " + e.getName()));
         System.out.println();
-        return null;
     }
 
-    private static Void deleteStation() {
+    private static void deleteStation() {
         System.out.println(INPUT_DELETE_STATION_NAME);
         String stationName = scanner.nextLine();
         boolean deleteStation = StationRepository.deleteStation(stationName);
         if (deleteStation) {
             System.out.println(INFO_DELETE_STATION);
-            return null;
+            return;
         }
         System.out.println(ERROR_DELETE_STATION);
-        return null;
     }
 
-    private static Void addStation() {
+    private static void addStation() {
         System.out.println(INPUT_ADD_STATION_NAME);
         String stationName = scanner.nextLine();
         StationRepository.addStation(new Station(stationName));
         System.out.println(INFO_ADD_STATION);
-        return null;
     }
 
 
