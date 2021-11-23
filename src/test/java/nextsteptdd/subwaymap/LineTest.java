@@ -36,7 +36,7 @@ public class LineTest {
 
     @Test
     void 지하철노선_등록() {
-        LineRepository.addLine(new Line("9호선"));
+        LineRepository.addLine(new Line("9호선", "교대역", "강남역"));
         assertThat(lines).contains(
                 new Line("9호선")
         );
@@ -61,5 +61,12 @@ public class LineTest {
     @Test
     void 지하철노선_중복된이름_등록안됨() {
         assertThatThrownBy(() -> LineRepository.addLine(new Line("신분당선"))).isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    void 지하철노선_두글자이상() {
+        assertThatThrownBy(() -> {
+            LineRepository.addLine(new Line("꾱"));
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }

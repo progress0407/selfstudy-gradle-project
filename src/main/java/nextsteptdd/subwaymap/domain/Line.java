@@ -8,10 +8,18 @@ public class Line {
     private static final String ERROR_LINE_NAME_MIN = "역 이름은 2글자 이상이어야 합니다.";
 
     String name;
+    String ascendingTerminalStationName;
+    String descendingTerminalStation;
 
     public Line(String name) {
         validateName(name);
         this.name = name;
+    }
+
+    public Line(String name, String ascendingTerminalStationName, String descendingTerminalStation) {
+        this.name = name;
+        this.ascendingTerminalStationName = ascendingTerminalStationName;
+        this.descendingTerminalStation = descendingTerminalStation;
     }
 
     private void validateName(String name) {
