@@ -3,6 +3,7 @@ package nextsteptdd.subwaymap.view;
 import java.util.Scanner;
 
 public abstract class InputView {
+    protected static final String LINE_SEPARATOR = System.lineSeparator();
     private static final String ERROR_OUT_OF_MENU = "선택할 수 없는 기능입니다.";
     protected static Scanner scanner = new Scanner(System.in);
 

@@ -3,15 +3,16 @@ package nextsteptdd.subwaymap.view;
 public class InputViewLine extends InputView {
 
     private static final String SHOW_DISPLAY =
-            "## 메인하면" +
-                    System.lineSeparator() +
-                    "1. 노선 등록" +
-                    System.lineSeparator() +
-                    "2. 노선 삭제" +
-                    System.lineSeparator() +
-                    "3. 노선 조회" +
-                    System.lineSeparator() +
-                    "B. 돌아가기";
+            "## 노선 관리 화면" +
+            LINE_SEPARATOR +
+            "1. 노선 등록" +
+            LINE_SEPARATOR +
+            "2. 노선 삭제" +
+            LINE_SEPARATOR +
+            "3. 노선 조회" +
+            LINE_SEPARATOR +
+            "B. 돌아가기"
+            ;
 
     public String inputNumber() {
         showMenu(SHOW_DISPLAY);
