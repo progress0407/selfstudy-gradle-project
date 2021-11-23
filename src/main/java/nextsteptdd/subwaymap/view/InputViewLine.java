@@ -9,7 +9,7 @@ public class InputViewLine extends InputView {
                     "3. 노선 조회" + LINE_SEPARATOR +
                     "B. 돌아가기";
 
-    public String inputNumber() {
+    public OutputView inputNumber() {
         showMenu(SHOW_DISPLAY);
         String input = scanner.nextLine();
         try {
@@ -17,7 +17,7 @@ public class InputViewLine extends InputView {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return input;
+        return new OutputViewLine(input);
     }
 
     @Override

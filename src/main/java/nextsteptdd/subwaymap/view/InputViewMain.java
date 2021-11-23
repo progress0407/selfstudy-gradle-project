@@ -2,7 +2,6 @@ package nextsteptdd.subwaymap.view;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.function.Supplier;
 
 public class InputViewMain extends InputView {
@@ -23,7 +22,7 @@ public class InputViewMain extends InputView {
         inputViewMap.put("2", InputViewLine::new);
     }
 
-    public String inputNumber() {
+    public OutputView inputNumber() {
         showMenu(SHOW_DISPLAY);
         String input = scanner.nextLine();
         validateInput(input);

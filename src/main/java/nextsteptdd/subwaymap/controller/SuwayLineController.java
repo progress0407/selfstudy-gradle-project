@@ -1,12 +1,14 @@
 package nextsteptdd.subwaymap.controller;
 
 import nextsteptdd.subwaymap.view.InputViewMain;
+import nextsteptdd.subwaymap.view.OutputView;
 
 public class SuwayLineController {
     public void run() {
         String input = "";
         do {
-            input = new InputViewMain().inputNumber();
+            OutputView outputView = new InputViewMain().inputNumber();
+            input = outputView.printResult();
         } while(!input.equalsIgnoreCase("Q") || input.equalsIgnoreCase("B"));
     }
 }
