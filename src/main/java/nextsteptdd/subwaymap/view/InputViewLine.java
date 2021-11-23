@@ -17,7 +17,11 @@ public class InputViewLine extends InputView {
     public String inputNumber() {
         showMenu(SHOW_DISPLAY);
         String input = scanner.nextLine();
-        validateInput(input);
+        try {
+            validateInput(input);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
         return input;
     }
 

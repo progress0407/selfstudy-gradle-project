@@ -42,8 +42,13 @@ public class InputViewStation extends InputView {
     public String inputNumber() {
         showMenu(SHOW_DISPLAY);
         String input = scanner.nextLine();
-        validateInput(input);
-        inputViewMap.get(input).call();
+        try {
+            validateInput(input);
+            inputViewMap.get(input).call();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+//        new OutputViewStation()
         // 정상 처리시 돌아가기
         return "B";
     }
@@ -79,6 +84,10 @@ public class InputViewStation extends InputView {
         if (input.equalsIgnoreCase("B")) {
             return;
         }
-        super.validateInput(input);
+        try {
+            super.validateInput(input);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }
