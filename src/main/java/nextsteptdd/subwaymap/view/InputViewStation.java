@@ -33,10 +33,6 @@ public class InputViewStation extends InputView {
         if (input.equalsIgnoreCase("B")) {
             return;
         }
-        try {
-            super.validateInput(input);
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
+        super.validateInput(input);
     }
 }
