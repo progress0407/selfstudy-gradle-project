@@ -1,0 +1,26 @@
+package nextsteptdd.subwaymap.view;
+
+import java.util.Scanner;
+
+public abstract class InputView {
+    private static final String ERROR_OUT_OF_MENU = "선택할 수 없는 기능입니다.";
+    protected static Scanner scanner = new Scanner(System.in);
+
+    protected static void showMenu(final String SHOW_DISPLAY) {
+        System.out.println(SHOW_DISPLAY);
+    }
+
+    abstract String inputNumber();
+
+    protected void validateInput(String input) {
+        int anInt = 0;
+        try {
+            anInt = Integer.parseInt(input);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ERROR_OUT_OF_MENU);
+        }
+        if (anInt < 1 || anInt > 4) {
+            throw new IllegalArgumentException(ERROR_OUT_OF_MENU);
+        }
+    }
+}
