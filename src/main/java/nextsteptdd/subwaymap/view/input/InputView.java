@@ -1,4 +1,6 @@
-package nextsteptdd.subwaymap.view;
+package nextsteptdd.subwaymap.view.input;
+
+import nextsteptdd.subwaymap.view.output.OutputView;
 
 import java.util.Scanner;
 

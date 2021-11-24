@@ -67,6 +67,8 @@ public class SectionTest {
 
     @Test
     void 구간_삭제() {
-
+        String lineName = "";
+        String staionName = "";
+        SectionRepository.deleteSection(lineName, staionName);
     }
 }

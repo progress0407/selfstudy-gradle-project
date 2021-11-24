@@ -1,4 +1,4 @@
-package nextsteptdd.subwaymap.view;
+package nextsteptdd.subwaymap.view.output;
 
 import nextsteptdd.subwaymap.model.Station;
 import nextsteptdd.subwaymap.repository.StationRepository;

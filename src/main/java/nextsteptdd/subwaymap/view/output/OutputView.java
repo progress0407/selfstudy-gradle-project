@@ -1,4 +1,4 @@
-package nextsteptdd.subwaymap.view;
+package nextsteptdd.subwaymap.view.output;
 
 import java.util.Scanner;
 

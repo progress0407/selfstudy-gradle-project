@@ -1,7 +1,7 @@
 package nextsteptdd.subwaymap.controller;
 
-import nextsteptdd.subwaymap.view.InputViewMain;
-import nextsteptdd.subwaymap.view.OutputView;
+import nextsteptdd.subwaymap.view.input.InputViewMain;
+import nextsteptdd.subwaymap.view.output.OutputView;
 
 public class SuwayLineController {
     public void run() {

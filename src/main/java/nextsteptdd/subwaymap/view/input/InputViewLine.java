@@ -1,4 +1,7 @@
-package nextsteptdd.subwaymap.view;
+package nextsteptdd.subwaymap.view.input;
+
+import nextsteptdd.subwaymap.view.output.OutputView;
+import nextsteptdd.subwaymap.view.output.OutputViewLine;
 
 public class InputViewLine extends InputView {
 
