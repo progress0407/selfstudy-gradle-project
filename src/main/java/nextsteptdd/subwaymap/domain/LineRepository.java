@@ -14,6 +14,12 @@ public class LineRepository {
         lines.add(line);
     }
 
+    public static void addLine(String lineName, String ascendingStationName, String descendingStationName) {
+        validateAlreadyLineExist(new Line(lineName));
+        Line line = new Line(lineName, ascendingStationName, descendingStationName);
+        lines.add(line);
+    }
+
     private static void validateAlreadyLineExist(Line line) {
         if (hasLine(line)) {
             throw new RuntimeException("이미 존재하는 노선입니다.");

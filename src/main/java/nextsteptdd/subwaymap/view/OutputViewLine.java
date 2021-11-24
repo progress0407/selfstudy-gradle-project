@@ -14,6 +14,8 @@ import static java.lang.System.out;
 public class OutputViewLine extends OutputView {
 
     private static final String INPUT_ADD_LINE_NAME = "## 등록할 노선 이름을 입력하세요.";
+    private static final String INPUT_ASCENDING_STATION_NAME = "## 등록할 노선의 상행 종점역 이름을 입력하세요.";
+    private static final String INPUT_DESCENDING_STATION_NAME = "## 등록할 노선의 하행 종점역 이름을 입력하세요.";
     private static final String INFO_ADD_LINE = "[INFO] 지하철 노선이 등록되었습니다." + LINE_SEPARATOR;
     private static final String INPUT_DELETE_LINE_NAME = "## 삭제할 노선 이름을 입력하세요.";
     private static final String INFO_DELETE_LINE = "[INFO] 지하철 노선이 삭제되었습니다." + LINE_SEPARATOR;
@@ -50,8 +52,16 @@ public class OutputViewLine extends OutputView {
     private static void addLine() {
         out.println(INPUT_ADD_LINE_NAME);
         String lineName = scanner.nextLine();
-        LineRepository.addLine(new Line(lineName));
-        out.println(INFO_ADD_LINE);
+        out.println(INPUT_ASCENDING_STATION_NAME);
+        String ascendingName = scanner.nextLine();
+        out.println(INPUT_DESCENDING_STATION_NAME);
+        String descendingName = scanner.nextLine();
+        try {
+            LineRepository.addLine(lineName, ascendingName, descendingName);
+            out.println(INFO_ADD_LINE);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     private static void deleteLine() {
