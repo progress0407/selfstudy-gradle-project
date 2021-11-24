@@ -8,6 +8,8 @@ import java.util.function.Supplier;
 
 public class InputViewMain extends InputView {
 
+
+
     private static final String SHOW_DISPLAY =
             "## 메인화면" + LINE_SEPARATOR +
                     "1. 역 관리" + LINE_SEPARATOR +
@@ -22,6 +24,8 @@ public class InputViewMain extends InputView {
     static {
         inputViewMap.put("1", InputViewStation::new);
         inputViewMap.put("2", InputViewLine::new);
+        inputViewMap.put("3", InputViewSection::new);
+        inputViewMap.put("4", InputViewSubwayLine::new);
     }
 
     public OutputView inputNumber() {
