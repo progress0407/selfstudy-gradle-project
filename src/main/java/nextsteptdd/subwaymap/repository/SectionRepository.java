@@ -26,25 +26,25 @@ public class SectionRepository {
         sections = new ArrayList<>(Arrays.asList(
                 new Section("2호선",
                         Arrays.asList(
-                            new Station("교대역"),
-                            new Station("강남역"),
-                            new Station("역삼역")
+                                new Station("교대역"),
+                                new Station("강남역"),
+                                new Station("역삼역")
                         )),
 
                 new Section("3호선",
                         Arrays.asList(
-                            new Station("교대역"),
-                            new Station("남부터미널역"),
-                            new Station("양재역"),
-                            new Station("매봉역")
-                )),
+                                new Station("교대역"),
+                                new Station("남부터미널역"),
+                                new Station("양재역"),
+                                new Station("매봉역")
+                        )),
 
                 new Section("신분당선",
                         Arrays.asList(
-                            new Station("강남역"),
-                            new Station("양재역"),
-                            new Station("양재시민의숲역")
-                ))
+                                new Station("강남역"),
+                                new Station("양재역"),
+                                new Station("양재시민의숲역")
+                        ))
         ));
     }
 
@@ -64,6 +64,7 @@ public class SectionRepository {
 
     /**
      * 이미 존재하는 구간에 역을 삽입한다
+     *
      * @param lineName     노선 이름
      * @param stationName  역 이름
      * @param stationOrder 등록될 역의 순서
@@ -73,13 +74,14 @@ public class SectionRepository {
         if (findLine != null) {
             StationRepository.addStation(new Station(stationName));
             Section findSection = findSectionByLineName(lineName);
-            findSection.getStations().add(stationOrder, new Station(stationName));
+            findSection.getStations().add(stationOrder - 1, new Station(stationName));
         }
     }
 
     /**
      * 새로운 구간을 넣는다
-     * @param lineName                노선 이름
+     *
+     * @param lineName              노선 이름
      * @param ascendingStationName  상행 종점역
      * @param descendingStationName 하행 종점역
      */
@@ -90,8 +92,8 @@ public class SectionRepository {
 
 
     /**
-     * @param lineName      노선 이름
-     * @param stationName   역 이름
+     * @param lineName    노선 이름
+     * @param stationName 역 이름
      */
     public static void deleteSection(String lineName, String stationName) {
         sections.stream()

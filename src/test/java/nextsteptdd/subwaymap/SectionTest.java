@@ -46,7 +46,7 @@ public class SectionTest {
         String ascendingStationName = "장승배기역";
         String descendingStationName = "이수역";
         String stationName = "상도역";
-        int stationOrder = 1;
+        int stationOrder = 2;
 
 
         // 새로운 호선 등록
