@@ -35,8 +35,7 @@ public class SectionTest {
         Line findLine = LineRepository.findLineByName(lineName);
         assertThat(findLine).isEqualTo(new Line(lineName));
 
-        Section findSection = SectionRepository.findSectionByLineName(lineName);
-        Station findStation = findSection.getStations().get(stationOrder);
+        Station findStation = SectionRepository.findStationByNames(lineName, stationName);
         assertThat(findStation).isEqualTo(new Station("잠실역"));
     }
 
@@ -67,8 +66,11 @@ public class SectionTest {
 
     @Test
     void 구간_삭제() {
-        String lineName = "";
-        String staionName = "";
-        SectionRepository.deleteSection(lineName, staionName);
+        String lineName = "3호선";
+        String stationName = "양재역";
+        SectionRepository.deleteSection(lineName, stationName);
+        Section findSection = SectionRepository.findSectionByLineName(lineName);
+        List<Station> stations = findSection.getStations();
+        assertThat(stations).doesNotContain(new Station(stationName));
     }
 }

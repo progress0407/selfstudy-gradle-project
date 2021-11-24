@@ -5,6 +5,7 @@ import nextsteptdd.subwaymap.model.Section;
 import nextsteptdd.subwaymap.model.Station;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.lang.System.out;
 
@@ -88,4 +89,23 @@ public class SectionRepository {
     }
 
 
+    /**
+     * @param lineName      노선 이름
+     * @param stationName   역 이름
+     */
+    public static void deleteSection(String lineName, String stationName) {
+        sections.stream()
+                .filter(section -> section.getLine().getName().equals(lineName))
+                .map(section -> section.getStations())
+                .filter(stations -> stations.removeIf(station -> station.getName().equals(stationName)))
+                .findFirst();
+    }
+
+    public static Station findStationByNames(String lineName, String stationName) {
+        Section findSection = findSectionByLineName(lineName);
+        return findSection.getStations().stream()
+                .filter(station -> station.getName().equals(stationName))
+                .findAny()
+                .get();
+    }
 }
