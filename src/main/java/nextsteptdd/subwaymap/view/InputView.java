@@ -2,6 +2,8 @@ package nextsteptdd.subwaymap.view;
 
 import java.util.Scanner;
 
+import static java.lang.System.out;
+
 public abstract class InputView {
 
     protected static final String LINE_SEPARATOR = System.lineSeparator();
@@ -9,7 +11,7 @@ public abstract class InputView {
     protected static Scanner scanner = new Scanner(System.in);
 
     protected static void showMenu(final String SHOW_DISPLAY) {
-        System.out.println(SHOW_DISPLAY);
+        out.println(SHOW_DISPLAY);
     }
 
     abstract OutputView inputNumber();

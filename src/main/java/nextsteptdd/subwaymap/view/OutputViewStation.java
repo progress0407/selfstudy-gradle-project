@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.System.out;
+
 public class OutputViewStation extends OutputView {
 
     private static final String INPUT_ADD_STATION_NAME = "## 등록할 역 이름을 입력하세요.";
@@ -38,27 +40,27 @@ public class OutputViewStation extends OutputView {
     }
 
     private static void stations() {
-        System.out.println(PRINT_LIST_STATION);
+        out.println(PRINT_LIST_STATION);
         List<Station> stations = StationRepository.stations();
-        stations.forEach(e -> System.out.println("[INFO] " + e.getName()));
-        System.out.println();
+        stations.forEach(e -> out.println("[INFO] " + e.getName()));
+        out.println();
     }
 
     private static void addStation() {
-        System.out.println(INPUT_ADD_STATION_NAME);
+        out.println(INPUT_ADD_STATION_NAME);
         String stationName = scanner.nextLine();
         StationRepository.addStation(new Station(stationName));
-        System.out.println(INFO_ADD_STATION);
+        out.println(INFO_ADD_STATION);
     }
 
     private static void deleteStation() {
-        System.out.println(INPUT_DELETE_STATION_NAME);
+        out.println(INPUT_DELETE_STATION_NAME);
         String stationName = scanner.nextLine();
         boolean deleteStation = StationRepository.deleteStation(stationName);
         if (deleteStation) {
-            System.out.println(INFO_DELETE_STATION);
+            out.println(INFO_DELETE_STATION);
             return;
         }
-        System.out.println(ERROR_DELETE_STATION);
+        out.println(ERROR_DELETE_STATION);
     }
 }
