@@ -7,7 +7,8 @@ public class InputViewLine extends InputView {
                     "1. 노선 등록" + LINE_SEPARATOR +
                     "2. 노선 삭제" + LINE_SEPARATOR +
                     "3. 노선 조회" + LINE_SEPARATOR +
-                    "B. 돌아가기";
+                    "B. 돌아가기" + LINE_SEPARATOR + LINE_SEPARATOR +
+                    "## 원하는 기능을 선택하세요.";
 
     public OutputView inputNumber() {
         showMenu(SHOW_DISPLAY);

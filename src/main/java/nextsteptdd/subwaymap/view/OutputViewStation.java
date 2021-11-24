@@ -15,7 +15,7 @@ public class OutputViewStation extends OutputView {
     private static final String INPUT_DELETE_STATION_NAME = "## 삭제할 역 이름을 입력하세요.";
     private static final String INFO_DELETE_STATION = "[INFO] 지하철 역이 삭제되었습니다." + LINE_SEPARATOR;
     private static final String ERROR_DELETE_STATION = "[ERROR] 삭제할 지하철이 존재하지 않습니다." + LINE_SEPARATOR;
-    private static final String INPUT_LIST_STATION_NAME = "## 역 목록";
+    private static final String PRINT_LIST_STATION = "## 역 목록";
 
     String input;
 
@@ -38,10 +38,17 @@ public class OutputViewStation extends OutputView {
     }
 
     private static void stations() {
-        System.out.println(INPUT_LIST_STATION_NAME);
+        System.out.println(PRINT_LIST_STATION);
         List<Station> stations = StationRepository.stations();
         stations.forEach(e -> System.out.println("[INFO] " + e.getName()));
         System.out.println();
+    }
+
+    private static void addStation() {
+        System.out.println(INPUT_ADD_STATION_NAME);
+        String stationName = scanner.nextLine();
+        StationRepository.addStation(new Station(stationName));
+        System.out.println(INFO_ADD_STATION);
     }
 
     private static void deleteStation() {
@@ -53,12 +60,5 @@ public class OutputViewStation extends OutputView {
             return;
         }
         System.out.println(ERROR_DELETE_STATION);
-    }
-
-    private static void addStation() {
-        System.out.println(INPUT_ADD_STATION_NAME);
-        String stationName = scanner.nextLine();
-        StationRepository.addStation(new Station(stationName));
-        System.out.println(INFO_ADD_STATION);
     }
 }
