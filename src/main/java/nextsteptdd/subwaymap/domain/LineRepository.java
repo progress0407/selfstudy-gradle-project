@@ -48,4 +48,17 @@ public class LineRepository {
     public static List<Line> lines() {
         return Collections.unmodifiableList(lines);
     }
+
+    // 구간 추가
+    public static void addStationOnLine(String lineName, String stationName, int order) {
+        Line findLine = findLineByName(lineName);
+        findLine.addStation(stationName, order);
+    }
+
+    private static Line findLineByName(String lineName) {
+        return lines.stream()
+                .filter(e -> e.getName().equals(lineName))
+                .findAny()
+                .orElseThrow(() -> new RuntimeException("[ERROR] 입력한 호선이 존재하지 않습니다."));
+    }
 }

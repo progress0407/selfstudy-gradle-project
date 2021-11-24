@@ -17,13 +17,15 @@ public class StationRepository {
 
     private static void initData() {
         stations = new ArrayList<>();
-        stations.add(new Station("교대역"));
-        stations.add(new Station("강남역"));
-        stations.add(new Station("역삼역"));
-        stations.add(new Station("남부터미널역"));
-        stations.add(new Station("양재역"));
-        stations.add(new Station("양재시민의숲역"));
-        stations.add(new Station("매봉역"));
+        stations.addAll(List.of(
+                new Station("교대역"),
+                new Station("강남역"),
+                new Station("역삼역"),
+                new Station("남부터미널역"),
+                new Station("양재역"),
+                new Station("양재시민의숲역"),
+                new Station("매봉역")
+        ));
     }
 
 
