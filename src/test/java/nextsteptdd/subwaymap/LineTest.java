@@ -1,7 +1,7 @@
 package nextsteptdd.subwaymap;
 
-import nextsteptdd.subwaymap.domain.Line;
-import nextsteptdd.subwaymap.domain.LineRepository;
+import nextsteptdd.subwaymap.model.Line;
+import nextsteptdd.subwaymap.repository.LineRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,7 +36,7 @@ public class LineTest {
 
     @Test
     void 지하철노선_등록() {
-        LineRepository.addLine(new Line("9호선", "교대역", "강남역"));
+        LineRepository.addLine(new Line("9호선"));
         assertThat(lines).contains(
                 new Line("9호선")
         );

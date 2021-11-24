@@ -1,8 +1,8 @@
 package nextsteptdd.subwaymap.view;
 
-import nextsteptdd.subwaymap.domain.Line;
-import nextsteptdd.subwaymap.domain.LineRepository;
-import nextsteptdd.subwaymap.domain.StationRepository;
+import nextsteptdd.subwaymap.model.Line;
+import nextsteptdd.subwaymap.repository.LineRepository;
+import nextsteptdd.subwaymap.repository.SectionRepository;
 import nextsteptdd.subwaymap.util.Voider;
 
 import java.util.HashMap;
@@ -57,7 +57,8 @@ public class OutputViewLine extends OutputView {
         out.println(INPUT_DESCENDING_STATION_NAME);
         String descendingName = scanner.nextLine();
         try {
-            LineRepository.addLine(lineName, ascendingName, descendingName);
+            LineRepository.addLine(new Line(lineName));
+            SectionRepository.addSection(lineName, ascendingName, descendingName);
             out.println(INFO_ADD_LINE);
         } catch (Exception exception) {
             exception.printStackTrace();

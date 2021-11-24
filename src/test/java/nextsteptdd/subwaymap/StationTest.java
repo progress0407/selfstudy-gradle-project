@@ -1,7 +1,7 @@
 package nextsteptdd.subwaymap;
 
-import nextsteptdd.subwaymap.domain.Station;
-import nextsteptdd.subwaymap.domain.StationRepository;
+import nextsteptdd.subwaymap.model.Station;
+import nextsteptdd.subwaymap.repository.StationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

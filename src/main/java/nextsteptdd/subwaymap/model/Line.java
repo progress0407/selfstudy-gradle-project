@@ -1,4 +1,4 @@
-package nextsteptdd.subwaymap.domain;
+package nextsteptdd.subwaymap.model;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,34 +8,16 @@ public class Line {
 
     private static final int MIN_NUM_OF_LINE_NAME = 2;
     private static final String ERROR_LINE_NAME_MIN = "역 이름은 2글자 이상이어야 합니다.";
-
     private final String name;
-    private String ascendingStationName;
-    private String descendingStationName;
 
-    private LinkedList<Station> stations = new LinkedList<>();
 
+    /**
+     * 테스트용 데이터 생성
+     * @param name 노선 이름
+     */
     public Line(String name) {
         validateName(name);
         this.name = name;
-    }
-
-    public Line(String name, String ascendingStationName, String descendingStationName) {
-        this.name = name;
-        this.ascendingStationName = ascendingStationName;
-        this.descendingStationName = descendingStationName;
-//        stations.add(new Station(ascendingStationName));
-//        stations.add(new Station(descendingStationName));
-    }
-
-    public Line(String name, List<Station> stations) {
-        validateName(name);
-        this.name = name;
-        this.stations.addAll(stations);
-    }
-
-    public LinkedList<Station> getStations() {
-        return stations;
     }
 
     private void validateName(String name) {
@@ -48,11 +30,7 @@ public class Line {
         return name;
     }
 
-    public void addStation(String stationName, int order) {
-        stations.add(order, new Station(stationName));
-    }
 
-    @Override
     public String toString() {
         return "SubwayLine{" +
                 "name='" + name + '\'' +

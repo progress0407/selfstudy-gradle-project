@@ -1,4 +1,4 @@
-package nextsteptdd.subwaymap.domain;
+package nextsteptdd.subwaymap.model;
 
 import java.util.Objects;
 

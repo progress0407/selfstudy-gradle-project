@@ -1,4 +1,6 @@
-package nextsteptdd.subwaymap.domain;
+package nextsteptdd.subwaymap.repository;
+
+import nextsteptdd.subwaymap.model.Station;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +17,7 @@ public class StationRepository {
         initData();
     }
 
-    private static void initData() {
+    public static void initData() {
         stations = new ArrayList<>();
         stations.addAll(List.of(
                 new Station("교대역"),
