@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.System.out;
+
 public class OutputViewLine extends OutputView {
 
     private static final String INPUT_ADD_LINE_NAME = "## 등록할 노선 이름을 입력하세요.";
@@ -39,28 +41,28 @@ public class OutputViewLine extends OutputView {
     }
 
     private static void lines() {
-        System.out.println(PRINT_LIST_LINE);
+        out.println(PRINT_LIST_LINE);
         List<Line> lines = LineRepository.lines();
-        lines.forEach(e -> System.out.println("[INFO] " + e.getName()));
-        System.out.println();
+        lines.forEach(e -> out.println("[INFO] " + e.getName()));
+        out.println();
     }
 
     private static void addLine() {
-        System.out.println(INPUT_ADD_LINE_NAME);
+        out.println(INPUT_ADD_LINE_NAME);
         String lineName = scanner.nextLine();
         LineRepository.addLine(new Line(lineName));
-        System.out.println(INFO_ADD_LINE);
+        out.println(INFO_ADD_LINE);
     }
 
     private static void deleteLine() {
-        System.out.println(INPUT_DELETE_LINE_NAME);
+        out.println(INPUT_DELETE_LINE_NAME);
         String lineName = scanner.nextLine();
         boolean deleteLine = LineRepository.deleteLineByName(lineName);
         if (deleteLine) {
-            System.out.println(INFO_DELETE_LINE);
+            out.println(INFO_DELETE_LINE);
             return;
         }
-        System.out.println(ERROR_DELETE_LINE);
+        out.println(ERROR_DELETE_LINE);
     }
 
 }
