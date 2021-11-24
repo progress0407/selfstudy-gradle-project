@@ -28,6 +28,12 @@ public class Line {
 //        stations.add(new Station(descendingStationName));
     }
 
+    public Line(String name, List<Station> stations) {
+        validateName(name);
+        this.name = name;
+        this.stations.addAll(stations);
+    }
+
     public LinkedList<Station> getStations() {
         return stations;
     }

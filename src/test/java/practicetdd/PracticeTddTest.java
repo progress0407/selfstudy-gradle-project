@@ -24,8 +24,7 @@ public class PracticeTddTest {
 
     @Test
     void LinkedList_순서() {
-        LinkedList<String> list = new LinkedList<>();
-        list.addAll(List.of("a", "b", "c", "d"));
+        LinkedList<String> list = new LinkedList<>(List.of("a", "b", "c", "d"));
         list.add(0, "0");
         out.println(list);
     }
