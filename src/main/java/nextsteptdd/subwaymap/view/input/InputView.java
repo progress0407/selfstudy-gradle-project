@@ -16,7 +16,7 @@ public abstract class InputView {
         out.println(SHOW_DISPLAY);
     }
 
-    abstract OutputView inputNumber();
+    public abstract OutputView inputNumber();
 
     protected void validateInput(String input) {
         int anInt = 0;

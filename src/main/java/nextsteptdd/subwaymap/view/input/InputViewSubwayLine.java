@@ -9,7 +9,7 @@ public class InputViewSubwayLine extends InputView {
     private static final String SHOW_DISPLAY = "## 지하철 노선도";
 
     @Override
-    OutputView inputNumber() {
+    public OutputView inputNumber() {
         showMenu(SHOW_DISPLAY);
         return new OutputViewSubwayLine("B");
     }

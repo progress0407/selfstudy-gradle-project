@@ -8,8 +8,6 @@ import java.util.function.Supplier;
 
 public class InputViewMain extends InputView {
 
-
-
     private static final String SHOW_DISPLAY =
             "## 메인화면" + LINE_SEPARATOR +
                     "1. 역 관리" + LINE_SEPARATOR +
