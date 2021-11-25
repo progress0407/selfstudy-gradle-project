@@ -32,6 +32,7 @@ public class OutputViewSection extends OutputView {
     static {
         behaviorMap.put("1", OutputViewSection::addSection);
 //        behaviorMap.put("2", OutputViewSection::deleteSection);
+        behaviorMap.put("B", OutputViewSection::returnMainMenu);
     }
 
     @Override
@@ -66,4 +67,5 @@ public class OutputViewSection extends OutputView {
         out.println(ERROR_DELETE_LINE);
     }*/
 
+    private static void returnMainMenu() {}
 }

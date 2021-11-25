@@ -31,6 +31,7 @@ public class OutputViewStation extends OutputView {
         behaviorMap.put("1", OutputViewStation::addStation);
         behaviorMap.put("2", OutputViewStation::deleteStation);
         behaviorMap.put("3", OutputViewStation::stations);
+        behaviorMap.put("B", OutputViewStation::returnMainMenu);
     }
 
     @Override
@@ -63,4 +64,7 @@ public class OutputViewStation extends OutputView {
         }
         out.println(ERROR_DELETE_STATION);
     }
+
+    // main 메뉴로 돌아가기 위한 메서드
+    private static void returnMainMenu() {}
 }

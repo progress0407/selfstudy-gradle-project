@@ -1,6 +1,8 @@
 package nextsteptdd.subwaymap.view.input;
 
+import nextsteptdd.subwaymap.view.constant.ViewType;
 import nextsteptdd.subwaymap.view.output.OutputView;
+import nextsteptdd.subwaymap.view.output.OutputViewFactory;
 import nextsteptdd.subwaymap.view.output.OutputViewLine;
 
 public class InputViewLine extends InputView {
@@ -21,7 +23,7 @@ public class InputViewLine extends InputView {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return new OutputViewLine(input);
+        return OutputViewFactory.create(ViewType.LINE, input);
     }
 
     @Override

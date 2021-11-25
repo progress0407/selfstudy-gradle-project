@@ -13,6 +13,6 @@ public class SuwayLineController {
             InputView inputView = InputViewFactory.create(ViewType.MAIN);
             OutputView outputView = inputView.inputNumber();
             input = outputView.printResult();
-        } while(!input.equalsIgnoreCase("Q") || input.equalsIgnoreCase("B"));
+        } while(!input.equalsIgnoreCase("Q"));
     }
 }

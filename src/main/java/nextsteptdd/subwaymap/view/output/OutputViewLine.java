@@ -34,6 +34,7 @@ public class OutputViewLine extends OutputView {
         behaviorMap.put("1", OutputViewLine::addLine);
         behaviorMap.put("2", OutputViewLine::deleteLine);
         behaviorMap.put("3", OutputViewLine::lines);
+        behaviorMap.put("B", OutputViewLine::returnMainMenu);
     }
 
     @Override
@@ -76,4 +77,5 @@ public class OutputViewLine extends OutputView {
         out.println(ERROR_DELETE_LINE);
     }
 
+    private static void returnMainMenu() {}
 }

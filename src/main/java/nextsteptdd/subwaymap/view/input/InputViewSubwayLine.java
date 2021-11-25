@@ -1,6 +1,8 @@
 package nextsteptdd.subwaymap.view.input;
 
+import nextsteptdd.subwaymap.view.constant.ViewType;
 import nextsteptdd.subwaymap.view.output.OutputView;
+import nextsteptdd.subwaymap.view.output.OutputViewFactory;
 import nextsteptdd.subwaymap.view.output.OutputViewSection;
 import nextsteptdd.subwaymap.view.output.OutputViewSubwayLine;
 
@@ -11,7 +13,7 @@ public class InputViewSubwayLine extends InputView {
     @Override
     public OutputView inputNumber() {
         showMenu(SHOW_DISPLAY);
-        return new OutputViewSubwayLine("B");
+        return OutputViewFactory.create(ViewType.SUBWAY_LINE, "B");
     }
 
     @Override

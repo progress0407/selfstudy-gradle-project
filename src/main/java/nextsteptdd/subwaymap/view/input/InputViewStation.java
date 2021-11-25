@@ -1,6 +1,8 @@
 package nextsteptdd.subwaymap.view.input;
 
+import nextsteptdd.subwaymap.view.constant.ViewType;
 import nextsteptdd.subwaymap.view.output.OutputView;
+import nextsteptdd.subwaymap.view.output.OutputViewFactory;
 import nextsteptdd.subwaymap.view.output.OutputViewStation;
 
 public class InputViewStation extends InputView {
@@ -22,7 +24,7 @@ public class InputViewStation extends InputView {
             exception.printStackTrace();
         }
         // 정상 처리시 돌아가기
-        return new OutputViewStation(input);
+        return OutputViewFactory.create(ViewType.STATION, input);
     }
 
     @Override
